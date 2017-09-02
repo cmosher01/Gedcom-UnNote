@@ -137,7 +137,7 @@ public class GedcomUnNote implements Gedcom.Processor {
         }
 
         final TreeNode<GedcomLine> nodeRecord = this.tree.getNode(id);
-        node.setObject(line.replaceValue(nodeRecord.getObject().getValue()));
+        node.setObject(line.replaceValue(nodeRecord.getObject().getValue().trim()));
         flagForDelete(nodeRecord);
     }
 
