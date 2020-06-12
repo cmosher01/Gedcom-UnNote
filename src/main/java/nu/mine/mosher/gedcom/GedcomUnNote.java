@@ -5,47 +5,14 @@ import nu.mine.mosher.gedcom.exception.InvalidLevel;
 import nu.mine.mosher.mopper.ArgParser;
 
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 import java.util.concurrent.atomic.AtomicInteger;
 
-import static nu.mine.mosher.gedcom.GedcomUnNoteOptions.Target.INLINE;
-import static nu.mine.mosher.gedcom.GedcomUnNoteOptions.Target.RECORD;
+import static nu.mine.mosher.gedcom.GedcomUnNoteOptions.Target.*;
 import static nu.mine.mosher.logging.Jul.log;
 
 // Created by Christopher Alan Mosher on 2017-08-28
 
-/*
-0 @I1@ INDI
-1 NAME Testing /Tester/
-1 NOTE @N1@
-0 @I2@ INDI
-1 NAME QA /Tester/
-1 NOTE @N1@
-0 @N1@ NOTE
-1 CONT
-1 CONT
---------------------- delete empty notes:
-0 @I1@ INDI
-1 NAME Testing /Tester/
-0 @I2@ INDI
-1 NAME QA /Tester/
-*/
-
-
-/*
-0 @I1@ INDI
-1 NAME Testing /Tester/
-1 NOTE @N1@
-0 @N1@ NOTE string
---------------------- make note inline:
-0 @I1@ INDI
-1 NAME Testing /Tester/
-1 NOTE string
---------------------- (reverse for make note record)
-*/
 public class GedcomUnNote implements Gedcom.Processor {
     private final GedcomUnNoteOptions options;
     private final Map<String, AtomicInteger> mapIdToCount = new HashMap<>(256);

@@ -9,7 +9,7 @@ public class GedcomUnNoteOptions extends GedcomOptions {
 
     public void help() {
         this.help = true;
-        System.err.println("Usage: java -jar gedcom-unnote-all.jar [OPTIONS] <in.ged >out.ged");
+        System.err.println("Usage: gedcom-unnote [OPTIONS] <in.ged >out.ged");
         System.err.println("Removes empty NOTE records, or converts between inline NOTEs and NOTE records.");
         System.err.println("Options:");
         System.err.println("-d, --delete               Deletes empty NOTEs.");
